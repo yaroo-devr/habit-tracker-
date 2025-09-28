@@ -3,7 +3,7 @@
 A comprehensive, modern habit tracking application built with React Native featuring cinematic UI animations, AI-powered suggestions, and professional data visualization.
 
 ![Habit Tracker Overview](./assets/images/habit-tracker-overview.png)
-*Complete habit tracking application with modern UI design*
+_Complete habit tracking application with modern UI design_
 
 ## 🎯 Features
 
@@ -15,7 +15,7 @@ A comprehensive, modern habit tracking application built with React Native featu
 - **Real-time Statistics**: Live habit completion rates and performance metrics
 
 ![Dashboard Screen](./assets/images/dashboard-screen.png)
-*Dashboard with circular progress indicators and animated streak tracker*
+_Dashboard with circular progress indicators and animated streak tracker_
 
 ### Add Habit Screen
 
@@ -32,7 +32,7 @@ A comprehensive, modern habit tracking application built with React Native featu
 - **Insights Cards**: AI-powered insights and recommendations
 
 ![Analytics Screen](./assets/images/analytics-screen.png)
-*Analytics dashboard with interactive charts and data visualization*
+_Analytics dashboard with interactive charts and data visualization_
 
 ## 🎨 UI/UX Features
 
@@ -172,6 +172,6 @@ The module features a sophisticated animation system with:
 ## 🎥 Demo Video
 
 [![Habit Tracker Demo](./assets/images/video-thumbnail.png)](./assets/videos/habit-tracker-demo.mp4)
-*Click to watch the complete habit tracker application demo*
+_Click to watch the complete habit tracker application demo_
 
 This habit tracker module represents a production-ready, professionally designed React Native application with modern UI/UX patterns and best practices.
