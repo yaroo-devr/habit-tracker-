@@ -1,55 +1,177 @@
-import { View, Text, StyleSheet, Switch } from 'react-native'
-import React, { useState } from 'react'
-import { StatusBar } from 'react-native'
-import { ThemeContext } from './src/context/ThemeContext'
-import { myColors } from './src/styles/Colors'
-import Calculator from './src/components/Calculator'
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  StatusBar,
+  SafeAreaView
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+
+// Import habit tracker screens
+import { DashboardScreen, AddHabitScreen, AnalyticsScreen } from './src/habit-tracker';
 
 const App = () => {
-  const [theme, setTheme] = useState('light')
+  const [currentScreen, setCurrentScreen] = useState('dashboard');
+  const [showAddHabit, setShowAddHabit] = useState(false);
+
+  const renderScreen = () => {
+    switch (currentScreen) {
+      case 'dashboard':
+        return <DashboardScreen />;
+      case 'analytics':
+        return <AnalyticsScreen />;
+      default:
+        return <DashboardScreen />;
+    }
+  };
+
+  const TabButton = ({ title, screenKey, icon }) => (
+    <TouchableOpacity
+      style={styles.tabButton}
+      onPress={() => setCurrentScreen(screenKey)}
+    >
+      <LinearGradient
+        colors={currentScreen === screenKey
+          ? ['rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.1)']
+          : ['transparent', 'transparent']
+        }
+        style={styles.tabButtonGradient}
+      >
+        <Text style={styles.tabIcon}>{icon}</Text>
+        <Text style={[
+          styles.tabText,
+          currentScreen === screenKey && styles.activeTabText
+        ]}>
+          {title}
+        </Text>
+      </LinearGradient>
+    </TouchableOpacity>
+  );
+
   return (
-    <ThemeContext.Provider value={theme}>
-      <View style={theme === 'light' ? styles.container : [styles.container, { backgroundColor: myColors.dark }]}>
-        <StatusBar barStyle={theme === 'light' ? 'dark-content' : 'light-content'} />
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
-        {/* Theme Toggle Switch */}
-        <View style={styles.switchContainer}>
-          <Switch
-            value={theme === 'dark'}
-            onValueChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            thumbColor={theme === 'dark' ? myColors.blue : myColors.white}
-            trackColor={{ false: myColors.gray, true: myColors.blue }}
-          />
-          <Text style={[styles.switchLabel, { color: theme === 'light' ? myColors.black : myColors.white }]}>
-            {theme === 'dark' ? 'Dark' : 'Light'} Mode
-          </Text>
-        </View>
-
-        {/* Calculator Component */}
-        <Calculator />
+      {/* Main Content - This will take remaining space */}
+      <View style={styles.content}>
+        {renderScreen()}
       </View>
-    </ThemeContext.Provider>
-  )
-}
 
-export default App
+      {/* Add Habit Modal */}
+      <AddHabitScreen
+        visible={showAddHabit}
+        onClose={() => setShowAddHabit(false)}
+      />
+
+      {/* Bottom Navigation - Fixed height at bottom */}
+      <View style={styles.bottomNavWrapper}>
+        <LinearGradient
+          colors={['rgba(103, 126, 234, 0.9)', 'rgba(118, 75, 162, 0.9)']}
+          style={styles.bottomNav}
+        >
+          <View style={styles.tabContainer}>
+            <TabButton
+              title="Dashboard"
+              screenKey="dashboard"
+              icon="🏠"
+            />
+
+            <TouchableOpacity
+              style={styles.addButton}
+              onPress={() => setShowAddHabit(true)}
+            >
+              <LinearGradient
+                colors={['#FF6B6B', '#FF8E53']}
+                style={styles.addButtonGradient}
+              >
+                <Text style={styles.addButtonText}>+</Text>
+              </LinearGradient>
+            </TouchableOpacity>
+
+            <TabButton
+              title="Analytics"
+              screenKey="analytics"
+              icon="📊"
+            />
+          </View>
+        </LinearGradient>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: myColors.light,
+    backgroundColor: '#667eea',
+    paddingTop: StatusBar.currentHeight || 0, // Handle status bar height
   },
-  switchContainer: {
-    position: 'absolute',
-    top: 50,
-    right: 20,
+  content: {
+    flex: 1, // Takes all available space except bottom nav
+  },
+  bottomNavWrapper: {
+    // Fixed height container for bottom navigation
+  },
+  bottomNav: {
+    paddingBottom: 20,
+    paddingTop: 10,
+    paddingHorizontal: 20,
+  },
+  tabContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    zIndex: 1,
+    justifyContent: 'space-around',
+    // paddingBottom:
   },
-  switchLabel: {
-    marginLeft: 8,
-    fontSize: 14,
+  tabButton: {
+    flex: 1,
+    borderRadius: 12,
+    overflow: 'hidden',
+  },
+  tabButtonGradient: {
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    alignItems: 'center',
+    borderRadius: 12,
+  },
+  tabIcon: {
+    fontSize: 20,
+    marginBottom: 4,
+  },
+  tabText: {
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 12,
     fontWeight: '500',
-  }
+  },
+  activeTabText: {
+    color: '#FFFFFF',
+    fontWeight: '600',
+  },
+  addButton: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    marginHorizontal: 20,
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+  },
+  addButtonGradient: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  addButtonText: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    fontWeight: '700',
+  },
 });
+
+export default App;
