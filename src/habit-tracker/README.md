@@ -14,7 +14,7 @@ _Complete habit tracking application with modern UI design_
 - **Real-time Statistics**: Live habit completion rates and performance metrics
 
 
-<img src="![Screenshot_2025-09-28-15-33-54-290_com reactnativeportfolio](https://github.com/user-attachments/assets/4d160b25-8066-454e-ac7e-51154d5274b0)" width="500">
+<img src="![Screenshot_2025-09-28-15-33-54-290_com reactnativeportfolio](https://github.com/user-attachments/assets/4d160b25-8066-454e-ac7e-51154d5274b0).png" width="500">
 
 _Dashboard with circular progress indicators and animated streak tracker_
 
