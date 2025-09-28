@@ -13,7 +13,8 @@ _Complete habit tracking application with modern UI design_
 - **Gradient Background**: Beautiful gradient backgrounds with smooth animations
 - **Real-time Statistics**: Live habit completion rates and performance metrics
 
-![Screenshot_2025-09-28-15-33-54-290_com reactnativeportfolio](https://github.com/user-attachments/assets/4d160b25-8066-454e-ac7e-51154d5274b0)
+
+<img src="![Screenshot_2025-09-28-15-33-54-290_com reactnativeportfolio](https://github.com/user-attachments/assets/4d160b25-8066-454e-ac7e-51154d5274b0)" width="500">
 
 _Dashboard with circular progress indicators and animated streak tracker_
 
@@ -23,8 +24,8 @@ _Dashboard with circular progress indicators and animated streak tracker_
 - **AI-Generated Suggestions**: Smart habit recommendations based on categories
 - **Category Selection**: Visual category picker with icons and gradients
 - **Floating Label Inputs**: Modern input fields with floating label animations
-![Screenshot_2025-09-28-15-34-22-572_com reactnativeportfolio](https://github.com/user-attachments/assets/c8940804-dcfe-4584-adfb-dd6272adbb94)
 
+<img src="![Screenshot_2025-09-28-15-34-22-572_com reactnativeportfolio](https://github.com/user-attachments/assets/c8940804-dcfe-4584-adfb-dd6272adbb94)" width="500">
 
 ### Analytics Screen
 
@@ -33,8 +34,8 @@ _Dashboard with circular progress indicators and animated streak tracker_
 - **Weekly Progress**: Detailed analytics with time period selection
 - **Insights Cards**: AI-powered insights and recommendations
 
-![Screenshot_2025-09-28-15-34-15-141_com reactnativeportfolio](https://github.com/user-attachments/assets/9a661dfc-099d-4158-af17-4c34edf179bd)
 
+<img src="![Screenshot_2025-09-28-15-34-15-141_com reactnativeportfolio](https://github.com/user-attachments/assets/9a661dfc-099d-4158-af17-4c34edf179bd)" width="500">
 _Analytics dashboard with interactive charts and data visualization_
 
 ## 🎨 UI/UX Features
@@ -174,8 +175,9 @@ The module features a sophisticated animation system with:
 
 ## 🎥 Demo Video
 
-https://www.youtube.com/watch?v=U6oUr2_lEUg
 
+<video src="https://www.youtube.com/watch?v=U6oUr2_lEUg" width="480" controls="controls" muted="muted" >
+</video>
 _Click to watch the complete habit tracker application demo_
 
 This habit tracker module represents a production-ready, professionally designed React Native application with modern UI/UX patterns and best practices.
